@@ -1,2 +1,8 @@
-=f.label :title
-=f.text_field :title
+.nested-fields
+	=f.text_field :title, placeholder: "Enter your question", class: 'form-control'
+	.poll-choices
+		= f.fields_for :choices do |c|
+			= render 'choice_fields', f: c
+		.links
+			= link_to_add_association 'add choice', f, :choices
+	= link_to_remove_association "remove question", f

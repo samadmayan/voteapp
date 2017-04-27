@@ -1,5 +1,9 @@
-= @poll.about
-- @poll_questions.each do |q|
-	= q.title
-	- q.choices.each do |c|
-		= c.title
+%h3 
+	= @poll.about
+= form_tag() do |f|
+	- @poll_questions.each do |q|
+		%h4
+			= q.title
+		- q.choices.each do |c|
+			%h5
+				= c.title

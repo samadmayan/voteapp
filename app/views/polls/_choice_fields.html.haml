@@ -1,2 +1,4 @@
-=f.label :title
-=f.text_field :title
+.nested-fields
+	%span
+		=f.text_field :title,placeholder: "Enter your choice", class: 'form-control'
+		= link_to_remove_association "remove choice", f

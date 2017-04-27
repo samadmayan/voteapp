@@ -1,17 +1,11 @@
 -@poll.errors.messages.each do |message|
 	=message
 = form_for @poll do |f|
-	.poll-info
-		=f.label :about
-		=f.text_field :about
+	%div.poll-info
+		=f.text_field :about, placeholder: "Short info about your poll", class: 'form-control'
 	.poll-questions
 		=f.fields_for :questions do |q|
-			.question
-				= render 'question_fields', f: q
-				.poll-choices
-					= q.fields_for :choices do |c|
-						.choice
-							= render 'choice_fields', f: c
-					= link_to_add_association 'add choice', q, :choices
-		= link_to_add_association 'add question', f, :questions
+			= render 'question_fields', f: q
+		.links
+			= link_to_add_association 'add question', f, :questions
 	=f.submit

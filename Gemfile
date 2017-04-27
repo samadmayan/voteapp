@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "cocoon"
+gem 'bootstrap-sass'
 gem 'rename'
 gem 'haml-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
