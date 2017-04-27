@@ -1,0 +1,5 @@
+= @poll.about
+- @poll_questions.each do |q|
+	= q.title
+	- q.choices.each do |c|
+		= c.title

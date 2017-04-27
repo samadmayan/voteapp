@@ -1,0 +1,9 @@
+%form{ :action => "show", :method => "post" }
+	- @choices.each do |choice|
+		%ul
+			%li
+				%label.radio
+					= choice.text
+				%input{:id => "vote_#{choice.id}", :name => "vote", :type => "radio", :value => "#{choice.word}"}
+					
+	%button.btn.btn-primary{:type => "submit"} vote_
