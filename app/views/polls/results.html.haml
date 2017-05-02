@@ -1,0 +1,7 @@
+- @poll.questions.each do |q|
+	%h3
+		= q.title
+	- q.choices.each do |c|
+		%p
+			= c.title
+			= c.counter

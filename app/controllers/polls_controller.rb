@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-	before_action :set_poll, only:[:show]
+	before_action :set_poll, only:[:show, :results]
 	def index
 		@polls = Poll.all
 	end
@@ -18,8 +18,19 @@ class PollsController < ApplicationController
 		end
 
 	end
+	def count
+		results = params[:results]
+		results.each do |k,v|
+			choice = Choice.find(v)
+			choice.counter = choice.counter + 1
+			choice.save
+		end
+		redirect_to results_poll_path(params[:id])
+	end
 	def show
 		@poll_questions = @poll.questions
+	end
+	def results
 	end
 	private
 		def set_poll

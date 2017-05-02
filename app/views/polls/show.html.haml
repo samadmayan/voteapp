@@ -1,9 +1,11 @@
 %h3 
 	= @poll.about
-= form_tag() do |f|
+= form_tag(count_poll_path) do 
 	- @poll_questions.each do |q|
 		%h4
 			= q.title
 		- q.choices.each do |c|
-			%h5
-				= c.title
+			%input{:id => "vote_#{c.id}", :name => "results[#{q.id}]", :type => "radio", :value => "#{c.id}"}
+			= c.title
+	= submit_tag
+			

@@ -1,2 +1,3 @@
 - @polls.each do |poll|
-	= link_to "#{poll.about}", poll_path(poll)
+	%div
+		= link_to "#{poll.about}", poll_path(poll)
