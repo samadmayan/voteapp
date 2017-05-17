@@ -1,3 +1,6 @@
 - @polls.each do |poll|
 	%div
-		= link_to "#{poll.about}", poll_path(poll)
+		- if user_signed_in?
+			= link_to "#{poll.about}", poll_path(poll)
+		- else
+			= link_to "#{poll.about}", results_poll_path(poll)

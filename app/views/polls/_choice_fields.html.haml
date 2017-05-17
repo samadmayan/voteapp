@@ -1,4 +1,4 @@
 .nested-fields
-	%span
+	%span.col-sm-10
 		=f.text_field :title,placeholder: "Enter your choice", class: 'form-control'
-		= link_to_remove_association "remove choice", f
+		= link_to_remove_association "remove choice", f, class: 'btn btn-sm btn-danger'

@@ -12,10 +12,12 @@
       %ul.nav.navbar-nav
         %li
           = link_to "Polls", polls_path
-          %li.dropdown
-            %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-              Actions
-              %span.caret
-            %ul.dropdown-menu
-              %li
-                = link_to "New poll", new_poll_path
+        - if user_signed_in?
+          %li
+            = link_to "New poll", new_poll_path
+      .pull-right.signing
+        - if user_signed_in?
+          = link_to "Logout", destroy_user_session_path, method: :delete, class: "btn logout btn-danger"
+        - else
+          = link_to "Sign in", user_session_path, class: "btn btn-default sign_in"
+          = link_to "Sign up", new_user_registration_path, class: "btn btn-primary sign_up"

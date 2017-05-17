@@ -1,9 +1,9 @@
 -@poll.errors.messages.each do |message|
 	=message
 = form_for @poll do |f|
-	%div.poll-info
+	%div.poll-info.col-sm-10
 		=f.text_field :about, placeholder: "Short info about your poll", class: 'form-control'
-	.poll-questions
+	.poll-questions.col-sm-10
 		=f.fields_for :questions do |q|
 			= render 'question_fields', f: q
 		.links

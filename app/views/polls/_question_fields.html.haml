@@ -1,8 +1,8 @@
-.nested-fields
+.nested-fields.col-sm-10
 	=f.text_field :title, placeholder: "Enter your question", class: 'form-control'
 	.poll-choices
 		= f.fields_for :choices do |c|
 			= render 'choice_fields', f: c
 		.links
-			= link_to_add_association 'add choice', f, :choices
+			= link_to_add_association 'add choice', f, :choices, class: "btn btn-sm btn-primary"
 	= link_to_remove_association "remove question", f

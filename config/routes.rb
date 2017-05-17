@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
 	resources :polls do
 		get 'results', on: :member
 		post 'count', on: :member

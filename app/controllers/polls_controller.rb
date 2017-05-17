@@ -1,5 +1,6 @@
 class PollsController < ApplicationController
-	before_action :set_poll, only:[:show, :results]
+	before_action :set_poll, only:[:show, :results, :destroy]
+	before_action :authenticate_user!, except:[:show, :index]
 	def index
 		@polls = Poll.all
 	end
@@ -17,6 +18,11 @@ class PollsController < ApplicationController
 			render 'new'			
 		end
 
+	end
+	def destroy
+		@poll.destroy
+		flash[:notice] = "Your poll has been deleted"
+		redirect_to polls_path
 	end
 	def count
 		results = params[:results]

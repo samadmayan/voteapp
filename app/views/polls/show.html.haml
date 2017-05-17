@@ -7,5 +7,9 @@
 		- q.choices.each do |c|
 			%input{:id => "vote_#{c.id}", :name => "results[#{q.id}]", :type => "radio", :value => "#{c.id}"}
 			= c.title
+	%br
 	= submit_tag
+= link_to "View results", results_poll_path(@poll), class: "btn btn-default"
+- if user_signed_in?
+	= link_to "Delete", poll_path(@poll), method: :delete, class: 'btn btn-danger'
 			
